@@ -1,12 +1,10 @@
-﻿<Window x:Class="HelpEditorOS.MainWindow"
+﻿<Window x:Class="CmdletHelpEditor.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	    xml:lang="en-US"
-	    mc:Ignorable="d"
-        xmlns:local="clr-namespace:HelpEditorOS"
-        x:Name="CmdletHelpEditor"
+	    mc:Ignorable="d" x:Name="CmdletHelpEditor"
 	Title="Cmdlet Help Editor"
 	Width="1200" Height="1024" ResizeMode="CanResize" SizeToContent="Manual" AllowDrop="False" WindowState="Normal" MinHeight="1200" MaxWidth="1250" MaxHeight="1250" MinWidth="1200">
 

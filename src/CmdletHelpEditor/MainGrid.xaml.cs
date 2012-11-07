@@ -1,23 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Collections.ObjectModel;
-using System.Reflection;
 using System.Management.Automation;
-using System.Management.Automation.Host;
-using System.Management.Automation.Runspaces;
+using CmdletHelpEditor.DataModel;
 
-namespace HelpEditorOS
+namespace CmdletHelpEditor
 {
     /// <summary>
     /// Interaction logic for MainGrid.xaml
@@ -57,7 +44,7 @@ namespace HelpEditorOS
 
         private void PsSnapinList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            HelpEditorOS.MainWindow.selectedModule = (ModuleObject)this.PsSnapinList.SelectedItem;
+            MainWindow.selectedModule = (ModuleObject)this.PsSnapinList.SelectedItem;
         }
     }
 }

@@ -1,23 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Xml;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Diagnostics;
+using CmdletHelpEditor.DataModel;
+
 //using System.Windows.Forms;
 //using System.Windows;
 
-namespace HelpEditorOS
+namespace CmdletHelpEditor
 {
 	/// <summary>
 	/// Interaction logic for VavigationControl.xaml
@@ -712,20 +707,20 @@ namespace HelpEditorOS
                 if (SelectedNode.DataContext != null)
                 {
 
-                    if (SelectedNode.DataContext is HelpEditorOS.parameterDecription)
+                    if (SelectedNode.DataContext is parameterDecription)
                     {
                         SelectedNode = (TreeViewItem)SelectedNode.Parent;
                         SelectedNode = (TreeViewItem)SelectedNode.Parent;
                         CmdletHelp = (cmdletDescription)SelectedNode.DataContext;
                     }
-                    else if (SelectedNode.DataContext is HelpEditorOS.example)
+                    else if (SelectedNode.DataContext is example)
                     {
                         SelectedNode = (TreeViewItem)SelectedNode.Parent;
                         SelectedNode = (TreeViewItem)SelectedNode.Parent;
                         CmdletHelp = (cmdletDescription)SelectedNode.DataContext;
 
                     }
-                    else if (SelectedNode.DataContext is HelpEditorOS.relatedlink)
+                    else if (SelectedNode.DataContext is relatedlink)
                     {
                         SelectedNode = (TreeViewItem)SelectedNode.Parent;
                         SelectedNode = (TreeViewItem)SelectedNode.Parent;
@@ -1199,7 +1194,7 @@ namespace HelpEditorOS
                 if (SelectedNode.DataContext != null)
                 {
                     // This means we have selected a Parameter record
-                    if (SelectedNode.DataContext is HelpEditorOS.parameterDecription)
+                    if (SelectedNode.DataContext is parameterDecription)
                     {
                         // Clear the parameters page and show it.
                         MainWindow.resetParameterPage();
@@ -1348,7 +1343,7 @@ namespace HelpEditorOS
 
                     }
                     // We populate the examples record in this section
-                    else if (SelectedNode.DataContext is HelpEditorOS.example)
+                    else if (SelectedNode.DataContext is example)
                     {
                         example exampledetails = SelectedNode.DataContext as example;
                         MainWindow.ExamplesControl1.ExampleNameTextBox.Text = exampledetails.ExampleName;
@@ -1369,7 +1364,7 @@ namespace HelpEditorOS
 
                     }
                     // We populate the Links page with the link info.
-                    else if (SelectedNode.DataContext is HelpEditorOS.relatedlink)
+                    else if (SelectedNode.DataContext is relatedlink)
                     {
                         relatedlink linkdetails = SelectedNode.DataContext as relatedlink;
                         MainWindow.RelatedLinks1.RelatedLinkTextBox.Text = linkdetails.LinkText;

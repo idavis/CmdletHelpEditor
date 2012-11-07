@@ -1,28 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Collections.ObjectModel;
-using System.Reflection;
 using System.Management.Automation;
-using System.Management.Automation.Host;
 using System.Management.Automation.Runspaces;
 using System.Xml;
-using System.Xml.XPath;
-using System.Xml.Linq;
 using System.Windows.Forms;
+using CmdletHelpEditor.DataModel;
 
-
-namespace HelpEditorOS
+namespace CmdletHelpEditor
 {
     /// <summary>
     /// Interaction logic for HeaderControl.xaml
@@ -538,7 +525,7 @@ namespace HelpEditorOS
             String PsSnapinModuleName;
             String PsSnapinName;
             // Make sure the correct PsSNapin is selected before executing this routine.            
-            if ( HelpEditorOS.MainWindow.selectedModule == null/*(this.MainGrid1.PsSnapinList.Items.Count == 0) || (this.MainGrid1.PsSnapinList.SelectedItems.Count == 0)*/)
+            if ( MainWindow.selectedModule == null/*(this.MainGrid1.PsSnapinList.Items.Count == 0) || (this.MainGrid1.PsSnapinList.SelectedItems.Count == 0)*/)
             {
                 System.Windows.MessageBox.Show("Select a PsSnapin before opening a help file.", "PsSnapin Not Selected", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Warning);
             }
@@ -546,7 +533,7 @@ namespace HelpEditorOS
             {
 
                 ModuleObject myview = new ModuleObject();
-                myview = (ModuleObject)HelpEditorOS.MainWindow.selectedModule;
+                myview = (ModuleObject)MainWindow.selectedModule;
                 //myview = (List<SnapinView>)MainGrid.PsSnapinList.SelectedItem;
                 //Name of the Assembly
                 PsSnapinModuleName = myview.Name;
