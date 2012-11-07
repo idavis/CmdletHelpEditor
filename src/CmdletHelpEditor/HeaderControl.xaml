@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="HelpEditorOS.HeaderControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid Opacity="1" x:Name="header" Margin="8,30,8,7" d:LayoutOverrides="Height" Grid.ColumnSpan="3" >
+
+        <TextBlock xml:space="preserve" Opacity="1" FontFamily="Segoe" FontSize="48" FontStretch="Normal" FontWeight="Light" TextWrapping="Wrap" Foreground="#FFFFFFFF" Margin="-2,-15.14,0,-2.383"><Run Foreground="#FF9C9FA3" Text="Cmdlet Help"/><Run Text=" "/><Run FontWeight="Normal" Text="Editor"/><Run Text=" "/><Run Foreground="#FF9C9FA3" FontWeight="Normal" FontSize="14" Text="Version 2.0"/></TextBlock>
+        <StackPanel>
+            <Canvas Background="#26FFFFFF"  HorizontalAlignment="Stretch" Margin="0,45,0,0" VerticalAlignment="Bottom" Height="21" x:Name="menuBar">
+                <StackPanel Margin="8,0,344,0" VerticalAlignment="Bottom" Height="21" Orientation="Horizontal" x:Name="stackMenu">
+                    <Button Style="{DynamicResource MenuButtonStyle}" Content="Select PsSnapin" Command="{Binding ResetImage, ElementName=roomControl, Mode=Default}" Click="ForwardNavigationButton_Click" IsCancel="True" x:Name="StartOverButton" Width="0" Height="21" Visibility="Hidden"/>
+                    <Button Style="{DynamicResource MenuButtonStyle}" Content="_Open Help File" Command="{Binding ResetImage, ElementName=roomControl, Mode=Default}" Click="BrowseHelpFile_Click" IsCancel="True" Width="98.447" Height="21" />
+                    <Button Style="{DynamicResource MenuButtonStyle}" Content="_New Help File" x:Name="___Button__NewHelpFIleButton" Click="LoadPsNapinWithoutHelpFile"/>
+                    <Button Style="{DynamicResource MenuButtonStyle}" Content="_Save Help File" x:Name="___Button__Save_File" Click="saveHelpInfoToTextFile_Click" Width="93.207" Height="21" Visibility="Hidden"/>
+                    <Button Style="{DynamicResource MenuButtonStyle}" Content="Save Help File _As ..." x:Name="___Button__SaveHelpFileAs" Click="SaveHelpFileAs_Click" Width="123.207" Height="21" BorderThickness="1,1,1,10" Visibility="Hidden"/>
+                </StackPanel>
+            </Canvas>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" x:Name="stackMenuExit_Copy" Width="56" Height="21" d:LayoutOverrides="Height" HorizontalAlignment="Right" Margin="0,0,8,0" VerticalAlignment="Bottom">
+            <Button HorizontalAlignment="Right" Style="{DynamicResource MenuButtonStyle}" Content="_About" Command="{Binding ResetImage, ElementName=roomControl, Mode=Default}" Click="About_Click" Width="56" Height="18.383" x:Name="___Button____About" />
+        </StackPanel>
+
+
+        <StackPanel Orientation="Horizontal" x:Name="stackMenuExit" HorizontalAlignment="Right" Margin="0,0,1,0" Width="128" VerticalAlignment="Top" Height="21">
+            <Button  HorizontalAlignment="Right" Style="{DynamicResource MenuButtonStyle}" Content="_Help" Command="{Binding ResetImage, ElementName=roomControl, Mode=Default}" Click="HelpLink_Click" Width="63.967" Height="18.383" />
+            <Button HorizontalAlignment="Right" Style="{DynamicResource MenuButtonStyle}" Content="E_xit" Command="{Binding ResetImage, ElementName=roomControl, Mode=Default}" Click="Exit_Click" Width="63.967" Height="18.383" />
+        </StackPanel>
+
+
+
+    </Grid>
+</UserControl>

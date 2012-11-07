@@ -1,0 +1,17 @@
+[B|b]in
+*.nupkg
+lib/
+_ReSharper.*
+*.dotCover
+bin
+obj
+debug
+release
+*.suo
+*resharper*
+*ncrunch*
+*.user
+*.cache
+MSBuildOutput.txt
+Packages/
+TestResults/

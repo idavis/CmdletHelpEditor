@@ -1,0 +1,38 @@
+﻿<Window x:Class="HelpEditorOS.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	    xml:lang="en-US"
+	    mc:Ignorable="d"
+        xmlns:local="clr-namespace:HelpEditorOS"
+        x:Name="CmdletHelpEditor"
+	Title="Cmdlet Help Editor"
+	Width="1200" Height="1024" ResizeMode="CanResize" SizeToContent="Manual" AllowDrop="False" WindowState="Normal" MinHeight="1200" MaxWidth="1250" MaxHeight="1250" MinWidth="1200">
+
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.451,0.978" StartPoint="0.454,0.043">
+            <GradientStop Color="#FF080E18" Offset="0"/>
+            <GradientStop Color="#FF8B96A4" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+
+
+    <Grid x:Name="GridContainer" Width="Auto" Height="Auto">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        	<StackPanel x:Name="LocalControls" Orientation="Vertical" VerticalAlignment="Top">
+        		<StackPanel x:Name="HeaderPannel" Orientation="Vertical" VerticalAlignment="Top"></StackPanel>
+        		<StackPanel x:Name="EditControls" Orientation="Horizontal" HorizontalAlignment="Left"></StackPanel>         		  	            
+        </StackPanel>
+        
+
+        <GridSplitter Visibility="Hidden" HorizontalAlignment="Left" Margin="0,0,0,3.14" x:Name="NavigationSplitter" Width="5" Grid.Column="1" Grid.Row="1"/>
+
+
+        </Grid>
+</Window>
