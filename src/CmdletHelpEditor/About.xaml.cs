@@ -1,9 +1,13 @@
-﻿using System.Windows;
+﻿#region Using Directives
+
+using System.Windows;
+
+#endregion
 
 namespace CmdletHelpEditor
 {
     /// <summary>
-    /// Interaction logic for About.xaml
+    ///   Interaction logic for About.xaml
     /// </summary>
     public partial class About : Window
     {
@@ -12,10 +16,9 @@ namespace CmdletHelpEditor
             InitializeComponent();
         }
 
-        private void About_OK_Button_Click(object sender, RoutedEventArgs e)
+        private void About_OK_Button_Click( object sender, RoutedEventArgs e )
         {
-            this.Close();
-
+            Close();
         }
     }
 }

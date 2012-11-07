@@ -1,24 +1,27 @@
-﻿using System;
+﻿#region Using Directives
+
+using System;
 using System.ComponentModel;
+
+#endregion
 
 namespace CmdletHelpEditor.DataModel
 {
     public class ModuleObject : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        private String _Name;
-        private String _Version;
         private String _Descrition;
         private String _ModuleType;
+        private String _Name;
+        private String _Version;
 
         public String Name
         {
             set
             {
-                if (_Name != value)
+                if ( _Name != value )
                 {
                     _Name = value;
-                    this.OnPropertyChanged("Name");
+                    OnPropertyChanged( "Name" );
                 }
             }
             get { return _Name; }
@@ -28,10 +31,10 @@ namespace CmdletHelpEditor.DataModel
         {
             set
             {
-                if (_Version != value)
+                if ( _Version != value )
                 {
                     _Version = value;
-                    this.OnPropertyChanged("Version");
+                    OnPropertyChanged( "Version" );
                 }
             }
             get { return _Version; }
@@ -41,10 +44,10 @@ namespace CmdletHelpEditor.DataModel
         {
             set
             {
-                if (_Descrition != value)
+                if ( _Descrition != value )
                 {
                     _Descrition = value;
-                    this.OnPropertyChanged("Descrition");
+                    OnPropertyChanged( "Descrition" );
                 }
             }
             get { return _Descrition; }
@@ -54,24 +57,27 @@ namespace CmdletHelpEditor.DataModel
         {
             set
             {
-                if (_ModuleType != value)
+                if ( _ModuleType != value )
                 {
                     _ModuleType = value;
-                    this.OnPropertyChanged("ModuleType");
+                    OnPropertyChanged( "ModuleType" );
                 }
             }
             get { return _ModuleType; }
         }
 
+        #region INotifyPropertyChanged Members
 
-        private void OnPropertyChanged(string propertyName)
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        #endregion
+
+        private void OnPropertyChanged( string propertyName )
         {
-            if (this.PropertyChanged != null)
+            if ( PropertyChanged != null )
             {
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+                PropertyChanged( this, new PropertyChangedEventArgs( propertyName ) );
             }
         }
     }
-
-  
 }

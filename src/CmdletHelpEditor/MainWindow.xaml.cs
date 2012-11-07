@@ -1,18 +1,20 @@
-﻿using System;
+﻿#region Using Directives
+
+using System;
+using System.Collections.ObjectModel;
+using System.Management.Automation;
 using System.Windows;
 using System.Windows.Controls;
-using System.Management.Automation;
-using System.Collections.ObjectModel;
 using CmdletHelpEditor.DataModel;
+
+#endregion
 
 namespace CmdletHelpEditor
 {
-
-    
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    ///   Interaction logic for MainWindow.xaml
     /// </summary>
-    public  partial class MainWindow :  Window
+    public partial class MainWindow : Window
     {
         // Used to create the XML MAML output file.
         public static WriteXMLHelpFileHelperClass helpWriter = new WriteXMLHelpFileHelperClass();
@@ -57,7 +59,7 @@ namespace CmdletHelpEditor
         public static ModuleObject selectedModule = new ModuleObject();
 
         public static NavigationControl NavControl = new NavigationControl();
-        public static MainGrid MainGrid1 = new MainGrid(); 
+        public static MainGrid MainGrid1 = new MainGrid();
         public static HeaderControl HeaderControl1 = new HeaderControl(); //height 300
         public static EmptyParameterControl EmptyParameterControl1 = new EmptyParameterControl(); //Not sure it is used.
         public static DescriptionControl DescriptionControl1 = new DescriptionControl(); //Margin="282.24,133,8,8"
@@ -66,43 +68,41 @@ namespace CmdletHelpEditor
         public static RelatedLinks RelatedLinks1 = new RelatedLinks(); //"282.24,137,8,8"
 
 
-        public  MainWindow()
+        public MainWindow()
         {
-
             InitializeComponent();
 
-            this.HeaderPannel.Children.Add(HeaderControl1);
-            this.EditControls.Children.Add(MainGrid1);
-            AddNavigationContol(NavControl);
-            AddDescriptionControl(DescriptionControl1);
-            EmptyParameterControl1.Visibility = System.Windows.Visibility.Hidden;
-            AddParametersControl(ParametersControl1);
-            AddExamplesControl(ExamplesControl1);
-            AddExamplesControl(RelatedLinks1);
-            AddEmptyParameterControl(EmptyParameterControl1);
-                   
+            HeaderPannel.Children.Add( HeaderControl1 );
+            EditControls.Children.Add( MainGrid1 );
+            AddNavigationContol( NavControl );
+            AddDescriptionControl( DescriptionControl1 );
+            EmptyParameterControl1.Visibility = Visibility.Hidden;
+            AddParametersControl( ParametersControl1 );
+            AddExamplesControl( ExamplesControl1 );
+            AddExamplesControl( RelatedLinks1 );
+            AddEmptyParameterControl( EmptyParameterControl1 );
         }
 
-        private void AddNavigationContol(NavigationControl navcontrol)
+        private void AddNavigationContol( NavigationControl navcontrol )
         {
-            Thickness NavMargin = new Thickness(); //"0,0,0,0";
+            var NavMargin = new Thickness(); //"0,0,0,0";
             navcontrol.Width = 278.24;
             navcontrol.Height = 900;
-            navcontrol.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;            
+            navcontrol.HorizontalAlignment = HorizontalAlignment.Left;
             NavMargin.Left = 0;
             NavMargin.Top = 0;
             NavMargin.Right = 0;
             NavMargin.Bottom = 0;
             NavControl.Margin = NavMargin;
-            NavControl.Visibility = System.Windows.Visibility.Hidden;
-            NavControl.Visibility = System.Windows.Visibility.Collapsed;
-            this.EditControls.Children.Add(NavControl);
+            NavControl.Visibility = Visibility.Hidden;
+            NavControl.Visibility = Visibility.Collapsed;
+            EditControls.Children.Add( NavControl );
         }
 
-        private void AddDescriptionControl(DescriptionControl descriptionControl)
+        private void AddDescriptionControl( DescriptionControl descriptionControl )
         {
             //Margin="282.24,133,8,8"
-            Thickness Margin = new Thickness();
+            var Margin = new Thickness();
             Margin.Top = 30;
             Margin.Left = 10;
             Margin.Right = 8;
@@ -113,14 +113,13 @@ namespace CmdletHelpEditor
             descriptionControl.Width = 900;
             descriptionControl.Height = 900;
             //DescriptionControl.Visibility = Visibility.Collapsed;
-            this.EditControls.Children.Add(descriptionControl);
-
+            EditControls.Children.Add( descriptionControl );
         }
 
-        private void AddParametersControl(ParametersControl paramControl)
+        private void AddParametersControl( ParametersControl paramControl )
         {
             //Margin="282.24,133,8,8"
-            Thickness Margin = new Thickness();
+            var Margin = new Thickness();
             Margin.Top = 30;
             Margin.Left = 10;
             Margin.Right = 8;
@@ -131,13 +130,13 @@ namespace CmdletHelpEditor
             paramControl.Width = 900;
             paramControl.Height = 900;
             //DescriptionControl.Visibility = Visibility.Collapsed;
-            this.EditControls.Children.Add(paramControl);
+            EditControls.Children.Add( paramControl );
         }
 
-        private void AddExamplesControl(ExamplesControl examplesControl)
+        private void AddExamplesControl( ExamplesControl examplesControl )
         {
             //Margin="282.24,133,8,8"
-            Thickness Margin = new Thickness();
+            var Margin = new Thickness();
             Margin.Top = 30;
             Margin.Left = 10;
             Margin.Right = 8;
@@ -146,14 +145,14 @@ namespace CmdletHelpEditor
             examplesControl.Margin = Margin;
             examplesControl.Visibility = Visibility.Collapsed;
             examplesControl.Width = 900;
-            examplesControl.Height = 900;            
-            this.EditControls.Children.Add(examplesControl);
+            examplesControl.Height = 900;
+            EditControls.Children.Add( examplesControl );
         }
 
-        private void AddExamplesControl(RelatedLinks relatedLinks)
+        private void AddExamplesControl( RelatedLinks relatedLinks )
         {
             //Margin="282.24,133,8,8"
-            Thickness Margin = new Thickness();
+            var Margin = new Thickness();
             Margin.Top = 30;
             Margin.Left = 10;
             Margin.Right = 8;
@@ -163,13 +162,13 @@ namespace CmdletHelpEditor
             relatedLinks.Visibility = Visibility.Collapsed;
             relatedLinks.Width = 900;
             relatedLinks.Height = 900;
-            this.EditControls.Children.Add(relatedLinks);
+            EditControls.Children.Add( relatedLinks );
         }
 
-        private void AddEmptyParameterControl(EmptyParameterControl emptyParameterControl)
+        private void AddEmptyParameterControl( EmptyParameterControl emptyParameterControl )
         {
             //Margin="282.24,133,8,8"
-            Thickness Margin = new Thickness();
+            var Margin = new Thickness();
             Margin.Top = 30;
             Margin.Left = 10;
             Margin.Right = 8;
@@ -179,31 +178,30 @@ namespace CmdletHelpEditor
             emptyParameterControl.Visibility = Visibility.Collapsed;
             emptyParameterControl.Width = 900;
             emptyParameterControl.Height = 900;
-            this.EditControls.Children.Add(emptyParameterControl);
+            EditControls.Children.Add( emptyParameterControl );
         }
 
         /// <summary>
-        /// Resets the examples page.
+        ///   Resets the examples page.
         /// </summary>
         public static void ResetExamplesPage()
         {
-            MainWindow.ExamplesControl1.ExampleCommandTextBox.Text = "";
-            MainWindow.ExamplesControl1.ExampleDescriptionTextBox.Text = "";
-            MainWindow.ExamplesControl1.ExampleNameTextBox.Text = "";
-            MainWindow.ExamplesControl1.ExampleOutputTextBox.Text = "";
-            MainWindow.ExamplesControl1.ExampleID.Text = "";
-            MainWindow.ExamplesControl1.OldExampleDescTextBox.Text = "";
-
+            ExamplesControl1.ExampleCommandTextBox.Text = "";
+            ExamplesControl1.ExampleDescriptionTextBox.Text = "";
+            ExamplesControl1.ExampleNameTextBox.Text = "";
+            ExamplesControl1.ExampleOutputTextBox.Text = "";
+            ExamplesControl1.ExampleID.Text = "";
+            ExamplesControl1.OldExampleDescTextBox.Text = "";
         }
 
         /// <summary>
-        /// Resets the related Link page.
+        ///   Resets the related Link page.
         /// </summary>
         public static void ResetLinksPage()
         {
-            MainWindow.RelatedLinks1.RelatedLinkTextBox.Text = "";
-            MainWindow.RelatedLinks1.LinkIDTextBox.Text = "";
-            MainWindow.RelatedLinks1.OldRelatedLinkTextBox.Text = "";
+            RelatedLinks1.RelatedLinkTextBox.Text = "";
+            RelatedLinks1.LinkIDTextBox.Text = "";
+            RelatedLinks1.OldRelatedLinkTextBox.Text = "";
         }
 
 
@@ -211,53 +209,50 @@ namespace CmdletHelpEditor
         /// </summary>
         public static void resetDescriptionPage()
         {
-            MainWindow.DescriptionControl1.ShortDescriptionTextBox.Text = "";
-            MainWindow.DescriptionControl1.DetailedDescriptionTextBox.Text = "";
-            MainWindow.DescriptionControl1.InputTypeDescTextBox.Text = "";
-            MainWindow.DescriptionControl1.InputTypeTextBox.Text = "";
-            MainWindow.DescriptionControl1.OutputTypeDescTextBox.Text = "";
-            MainWindow.DescriptionControl1.OutpuTypeTextBox.Text = "";
-            MainWindow.DescriptionControl1.NotesDescriptionTextBox.Text = "";
-            MainWindow.DescriptionControl1.OldShortDescTextBox.Text = "";
-            MainWindow.DescriptionControl1.OldDetailedDescriptionTextBox.Text = "";
-            MainWindow.DescriptionControl1.OldNotesTextBox.Text = "";
-            MainWindow.DescriptionControl1.OldOutputTypeDescTextBox.Text = "";
-            MainWindow.DescriptionControl1.OldInputTypeTextBox.Text = "";
-            MainWindow.DescriptionControl1.OldInputTypeDescTextBox.Text = "";
-            MainWindow.DescriptionControl1.OldTypeTextBox.Text = "";
-
+            DescriptionControl1.ShortDescriptionTextBox.Text = "";
+            DescriptionControl1.DetailedDescriptionTextBox.Text = "";
+            DescriptionControl1.InputTypeDescTextBox.Text = "";
+            DescriptionControl1.InputTypeTextBox.Text = "";
+            DescriptionControl1.OutputTypeDescTextBox.Text = "";
+            DescriptionControl1.OutpuTypeTextBox.Text = "";
+            DescriptionControl1.NotesDescriptionTextBox.Text = "";
+            DescriptionControl1.OldShortDescTextBox.Text = "";
+            DescriptionControl1.OldDetailedDescriptionTextBox.Text = "";
+            DescriptionControl1.OldNotesTextBox.Text = "";
+            DescriptionControl1.OldOutputTypeDescTextBox.Text = "";
+            DescriptionControl1.OldInputTypeTextBox.Text = "";
+            DescriptionControl1.OldInputTypeDescTextBox.Text = "";
+            DescriptionControl1.OldTypeTextBox.Text = "";
         }
 
 
         /// <summary>
-        /// This routine resets the parameter page.
+        ///   This routine resets the parameter page.
         /// </summary>
         public static void resetParameterPage()
         {
-            MainWindow.ParametersControl1.ParameterDescTextBox.Text = "";
-            MainWindow.ParametersControl1.ParameterNameTextBox.Text = "";
-            MainWindow.ParametersControl1.ValueFromRemainingCheckBox.IsChecked = false;
-            MainWindow.ParametersControl1.VFPBPN_CheckBox.IsChecked = false;
-            MainWindow.ParametersControl1.VFP_CheckBox.IsChecked = false;
-            MainWindow.ParametersControl1.MandatoryCheckBox.IsChecked = false;
-            MainWindow.ParametersControl1.DynamicCheckBox.IsChecked = false;
-            MainWindow.ParametersControl1.PositionalCheckBox.IsChecked = false;
-            MainWindow.ParametersControl1.PositionTextBox.Text = "";
-            MainWindow.ParametersControl1.AliasesList.Items.Clear();
-            MainWindow.ParametersControl1.AttributesList.Items.Clear();
-            MainWindow.ParametersControl1.DefaultValueTextBox.Text = "";
-            MainWindow.ParametersControl1.GlobbingCheckBox.IsChecked = false;
-            MainWindow.ParametersControl1.OldParamDefaultValueTextBox.Text = "";
-            MainWindow.ParametersControl1.OldParameterDescTextBox.Text = "";
-            MainWindow.ParametersControl1.OldGlobbingCheckBox.IsChecked = false;
-            MainWindow.ParametersControl1.ParameterTypeTextBox.Text = "";
-
-
+            ParametersControl1.ParameterDescTextBox.Text = "";
+            ParametersControl1.ParameterNameTextBox.Text = "";
+            ParametersControl1.ValueFromRemainingCheckBox.IsChecked = false;
+            ParametersControl1.VFPBPN_CheckBox.IsChecked = false;
+            ParametersControl1.VFP_CheckBox.IsChecked = false;
+            ParametersControl1.MandatoryCheckBox.IsChecked = false;
+            ParametersControl1.DynamicCheckBox.IsChecked = false;
+            ParametersControl1.PositionalCheckBox.IsChecked = false;
+            ParametersControl1.PositionTextBox.Text = "";
+            ParametersControl1.AliasesList.Items.Clear();
+            ParametersControl1.AttributesList.Items.Clear();
+            ParametersControl1.DefaultValueTextBox.Text = "";
+            ParametersControl1.GlobbingCheckBox.IsChecked = false;
+            ParametersControl1.OldParamDefaultValueTextBox.Text = "";
+            ParametersControl1.OldParameterDescTextBox.Text = "";
+            ParametersControl1.OldGlobbingCheckBox.IsChecked = false;
+            ParametersControl1.ParameterTypeTextBox.Text = "";
         }
 
         public static void Exit()
         {
-            Application current = App.Current;
+            Application current = Application.Current;
             current.Shutdown();
         }
     }
